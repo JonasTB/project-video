@@ -1,19 +1,27 @@
-import React from "react";
-import { Container, Subtitle, Title, Video, Wrapper, Iframe } from "./styles";
+import { Container, Subtitle, Title, Video, Wrapper, Iframe, Mapper } from "./styles";
 
-const Frame = (props) => {
-  const { embed, subtitle, title } = props;
+const Frame = ({ frames }) => {
   return (
-    <Container>
-      <Wrapper>
-
-        <Video>
-          <Iframe src={"https://www.youtube.com/embed/" + embed} allowFullScreen/>
-      </Video>
-      <Subtitle>{subtitle}</Subtitle>
-      <Title>{title}</Title>
-    </Wrapper>
-    </Container>
+    <Mapper>
+      {frames
+        .slice(0)
+        .reverse()
+        .map((frame, index) => (
+          <Container>
+            <Wrapper>
+              <Video>
+                <Iframe
+                  key={index}
+                  src={"https://www.youtube.com/embed/" + frame.embed}
+                  allowFullScreen
+                />
+              </Video>
+              <Subtitle>{frame.subtitle}</Subtitle>
+              <Title>{frame.title}</Title>
+            </Wrapper>
+          </Container>
+        ))}
+    </Mapper>
   );
 };
 

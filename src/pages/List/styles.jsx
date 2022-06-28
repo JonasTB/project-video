@@ -12,12 +12,6 @@ export const Added = styled.button`
   border: 2px solid palevioletred;
   border-radius: 3px;
 `
-export const Wrapper = styled.div`
-  justify-content: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 0));
-  grid-gap: 6rem;
-`;
 
 export const Footer = styled.div`
   width: 100%;

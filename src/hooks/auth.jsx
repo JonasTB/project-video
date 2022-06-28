@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
     const user = localStorage.getItem('user');
 
     if(token && user) {
-      return { token, user: JSON.parse(user) };
+      return { token };
     }
 
     return {};
@@ -21,22 +21,20 @@ const AuthProvider = ({ children }) => {
       password,
     });
     
-    const { token, user } = response.data;
+    const { token } = response.data;
     localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(user.data));
-    setData({ token, user });
+    setData({ token });
 
   }, []);
   
   const signOut = useCallback(() => {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
 
     setData({});
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider value={{ signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

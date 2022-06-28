@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   justify-content: center;
   font-family: Quicksand, arial, sans-serif;
-  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.20);
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 10px 10px;
 `;
 
@@ -22,7 +22,7 @@ export const Subtitle = styled.div`
   width: 100%;
   padding: 15px 15px 10px 15px;
   font-size: 0.9rem;
-`
+`;
 
 export const Video = styled.div`
   display: flex;
@@ -38,7 +38,14 @@ export const Wrapper = styled.div`
 export const Iframe = styled.iframe`
   width: 480px;
   height: 250px;
-  frameBorder: "0";
+  frameborder: "0";
   border-radius: 10px 10px 0px 0px;
-  allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-`
+  allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+`;
+
+export const Mapper = styled.div`
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0));
+  grid-gap: 6rem;
+`;
