@@ -8,3 +8,8 @@ export const Nav = styled.nav`
 export const Pages = styled.ul`
   justify-content: center;
 `;
+
+export const List = styled.div`
+  width: 3%;
+  border-color: #105DCB;
+`

@@ -1,28 +1,26 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import api from '../../services/api';
 import Frame from '../../components/Frame';
 import Pagination from '../../components/Pagination';
-import { Container, Added, Wrapper, Footer } from './styles';
+import { Container, Added, Footer } from './styles';
 
 const List = () => {
-
   const [frame, setFrame] = useState([]);
-  const [flag, setFlag] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [framePerPage] = useState(8);
-
-  const loadFrame = useCallback(async () => {
-    await api.get('/video/list').then((res) => {
-      setFrame(res.data);
-      setFlag(true);
-    }).catch((err) => {
-      console.log(err);
-    });
-  }, [frame, flag]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const loadFrame = async() => {
+      await api.get('/video/list').then((res) => {
+        setFrame(res.data);
+        setLoading(true);
+      }).catch((err) => {
+        return err;
+      });
+    }
     loadFrame();
-  }, []);
+  }, [frame, loading]);
 
   const indexOfLastFrame = currentPage * framePerPage;
   const indexOfFirstFrame = indexOfLastFrame - framePerPage;
@@ -34,6 +32,7 @@ const List = () => {
 
   return (
     <Container>
+      <Added>Adicionar</Added>
       <Frame frames={frame} />
       <Footer>
         <Pagination
