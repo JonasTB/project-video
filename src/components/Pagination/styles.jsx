@@ -13,3 +13,8 @@ export const List = styled.div`
   width: 3%;
   border-color: #105DCB;
 `
+
+export const Numbers = styled.a`
+  text-align: center;
+  font-size: 1.2rem;
+`
