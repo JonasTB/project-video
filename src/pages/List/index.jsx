@@ -29,6 +29,8 @@ const List = () => {
   const currentPages = frame.slice(indexOfFirstFrame, indexOfLastFrame);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const nextPage = () => this.setState({ currentPage: currentPage + 1 });
+  const prevPage = () => this.setState({ currentPage: currentPage - 1 });
 
   return (
     <Container>
