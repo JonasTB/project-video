@@ -23,7 +23,7 @@ const Create = () => {
       .post("/video/create", video)
       .then((res) => {
         console.log(res);
-        navigate("/");
+        navigate("/videos");
       })
       .catch((err) => {
         alert("error: " + err.message);
