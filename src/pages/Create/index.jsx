@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import { toast } from 'react-toastify';
 import { Container, Button, Form, Input, WrapperInput, Text } from "./styles";
 
 const Create = () => {
@@ -23,9 +24,11 @@ const Create = () => {
       .post("/video/create", video)
       .then((res) => {
         console.log(res);
+        toast.success("Vídeo cadastrado com sucesso! 📀");
         navigate("/videos");
       })
       .catch((err) => {
+        toast.error("Não foi possível cadastrar, tente novamente! ❌");
         alert("error: " + err.message);
       });
   };

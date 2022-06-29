@@ -3,8 +3,10 @@ import api from '../../services/api';
 import Frame from '../../components/Frame';
 import Pagination from '../../components/Pagination';
 import { Container, Added, Footer } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 const List = () => {
+  const navigate = useNavigate();
   const [frame, setFrame] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [framePerPage] = useState(8);
@@ -30,9 +32,13 @@ const List = () => {
   const nextPage = () => this.setState({ currentPage: currentPage + 1 });
   const prevPage = () => this.setState({ currentPage: currentPage - 1 });
 
+  const added = () => {
+    navigate('/create');
+  }
+
   return (
     <Container>
-      <Added>Adicionar</Added>
+      <Added onClick={added}>Adicionar</Added>
       <Frame frames={frame} />
       <Footer>
         <Pagination

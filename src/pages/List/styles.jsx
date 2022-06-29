@@ -4,6 +4,9 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 1% 5% 1%;
   overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 `;
 export const Added = styled.button`
   font-size: 1em;
